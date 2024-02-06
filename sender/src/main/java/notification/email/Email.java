@@ -1,4 +1,9 @@
-package notification.notifier.email;
+package notification.email;
+
+import jakarta.mail.Session;
+import jakarta.mail.internet.MimeMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
@@ -20,5 +25,11 @@ public class Email {
             }
         }
         return instance;
+    }
+
+    private boolean sendEmail(Session session, MimeMessage message) {
+        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+        javaMailSender.setHost("");
+        return true;
     }
 }

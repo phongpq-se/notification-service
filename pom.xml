@@ -21,6 +21,8 @@
         <java.version>17</java.version>
         <akka.version>2.5.22</akka.version>
         <scala.major.version>2.11</scala.major.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-collections4.version>4.3</commons-collections4.version>
     </properties>
 
     <modules>

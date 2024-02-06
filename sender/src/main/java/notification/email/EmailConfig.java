@@ -1,4 +1,4 @@
-package notification.notifier.email;
+package notification.email;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
