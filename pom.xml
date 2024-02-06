@@ -26,6 +26,7 @@
     <modules>
         <module>backend</module>
         <module>library</module>
+        <module>sender</module>
     </modules>
 
     <dependencyManagement>
