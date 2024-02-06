@@ -88,7 +88,7 @@ public class SmtpEmailServiceImplTest {
         mailSender.setPort(587);
 
         mailSender.setUsername("phongpham.dev@gmail.com");
-        mailSender.setPassword("kyqn jbqa aeea mlzl");
+        mailSender.setPassword("");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
