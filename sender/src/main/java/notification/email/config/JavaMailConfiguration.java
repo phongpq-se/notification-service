@@ -1,5 +1,7 @@
 package notification.email.config;
 
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -7,8 +9,12 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
+@Getter
 @Configuration
 public class JavaMailConfiguration {
+
+    @Value("${ppq_mail_server_password}")
+    private String password;
 
     @Bean
     public JavaMailSender getJavaMailSender() {
@@ -16,8 +22,8 @@ public class JavaMailConfiguration {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("my.gmail@gmail.com");
-        mailSender.setPassword("password");
+        mailSender.setUsername("phongpham.dev@gmail.com");
+        mailSender.setPassword(System.getenv(password));
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
