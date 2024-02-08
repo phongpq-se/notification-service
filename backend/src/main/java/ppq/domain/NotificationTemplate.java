@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+import ppq.enummeration.TemplateType;
 
 import java.sql.Timestamp;
 import java.util.Map;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class NotificationTemplate {
     @PrimaryKey
     private String templateId;
-    private String type;
+    private TemplateType type;
     private String ver;
     private String data;
     private String template_schema;
