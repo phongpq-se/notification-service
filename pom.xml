@@ -33,6 +33,47 @@
         <module>cassandra-utils</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.43.2</version>
+                <inherited>false</inherited>
+                <configuration>
+                    <skip>${skipDockerMaven}</skip>
+                    <images>
+                        <image>
+                            <alias>cassandra</alias>
+                            <name>cassandra:latest</name>
+                            <run>
+                                <ports>
+                                    <port>9042:9042</port>
+                                </ports>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>start</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -40,6 +81,12 @@
                 <artifactId>library</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>ppq</groupId>
+                <artifactId>cassandra-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>
