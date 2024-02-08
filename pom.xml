@@ -30,6 +30,7 @@
         <module>library</module>
         <module>sender</module>
         <module>actors</module>
+        <module>cassandra-utils</module>
     </modules>
 
     <dependencyManagement>
