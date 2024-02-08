@@ -25,6 +25,18 @@
         <commons-collections4.version>4.3</commons-collections4.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <modules>
         <module>backend</module>
         <module>library</module>
@@ -33,46 +45,39 @@
         <module>cassandra-utils</module>
     </modules>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.43.2</version>
-                <inherited>false</inherited>
-                <configuration>
-                    <skip>${skipDockerMaven}</skip>
-                    <images>
-                        <image>
-                            <alias>cassandra</alias>
-                            <name>cassandra:latest</name>
-                            <run>
-                                <ports>
-                                    <port>9042:9042</port>
-                                </ports>
-                            </run>
-                        </image>
-                    </images>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>start</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>stop</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>io.fabric8</groupId>-->
+    <!--                <artifactId>docker-maven-plugin</artifactId>-->
+    <!--                <version>0.43.2</version>-->
+    <!--                <inherited>false</inherited>-->
+    <!--                <configuration>-->
+    <!--                    <skip>${skipDockerMaven}</skip>-->
+    <!--                    <images>-->
+    <!--                        <image>-->
+    <!--                            <alias>cassandra</alias>-->
+    <!--                            <name>cassandra:latest</name>-->
+    <!--                            <run>-->
+    <!--                                <ports>-->
+    <!--                                    <port>9042:9042</port>-->
+    <!--                                </ports>-->
+    <!--                            </run>-->
+    <!--                        </image>-->
+    <!--                    </images>-->
+    <!--                </configuration>-->
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <id>start</id>-->
+    <!--                        <phase>process-test-classes</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>start</goal>-->
+    <!--                        </goals>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
 
     <dependencyManagement>
         <dependencies>

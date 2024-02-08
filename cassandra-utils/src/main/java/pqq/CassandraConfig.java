@@ -19,7 +19,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     @Override
     protected List<CreateKeyspaceSpecification> getKeyspaceCreations() {
         CreateKeyspaceSpecification specification = CreateKeyspaceSpecification
-                .createKeyspace("notification").ifNotExists()
+                .createKeyspace("ppq_notifications").ifNotExists()
                 .with(KeyspaceOption.DURABLE_WRITES, true);
         return List.of(specification);
     }
@@ -27,16 +27,16 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     @Nullable
     @Override
     protected KeyspacePopulator keyspaceCleaner() {
-        return new ResourceKeyspacePopulator(scriptOf("DROP KEYSPACE IF EXISTS notification;"));
+        return new ResourceKeyspacePopulator(scriptOf("DROP KEYSPACE IF EXISTS ppq_notifications;"));
     }
 
     @Override
     protected String getContactPoints() {
-        return "localhost:9042";
+        return "localhost";
     }
 
     @Override
     protected String getKeyspaceName() {
-        return "notification";
+        return "ppq_notifications";
     }
 }
