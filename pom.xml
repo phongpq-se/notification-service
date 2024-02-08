@@ -29,6 +29,7 @@
         <module>backend</module>
         <module>library</module>
         <module>sender</module>
+        <module>actors</module>
     </modules>
 
     <dependencyManagement>
