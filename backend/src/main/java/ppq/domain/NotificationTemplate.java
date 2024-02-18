@@ -23,7 +23,7 @@ public class NotificationTemplate {
     private TemplateType type;
     private String ver;
     private String data;
-    private String template_schema;
+    private String templateSchema;
     private Map<String, String> config;
     private String createdBy;
     private Timestamp createdOn;
